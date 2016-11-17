@@ -1,0 +1,61 @@
+{
+	"welcome" : "Accueil",
+
+	"english" : "English",
+    "french" : "Fran\u00e7ais",	
+	
+	"create" : "Cr\u00e9er",
+	"edit" : "Modifier",
+	"delete" : "Supprimer",
+	"delete ok" : "Suppression r\u00e9ussie",
+	"save" : "Enregistrer",
+	"save ok" : "Enregistrement r\u00e9ussi",
+	"cancel" : "Annuler",
+
+	"Account" : "Account",
+	"account.id" : "id",
+	"account.accountName" : "accountName",
+	"account.originalBalance" : "originalBalance",
+	"account.currentBalance" : "currentBalance",
+	"account.dateOpened" : "dateOpened",
+	"account.dateClosed" : "dateClosed",
+	"account.dateCreated" : "dateCreated",
+	"account.dateModified" : "dateModified",
+	"account.accountTypeId" : "accountTypeId",
+	"account.id.not.defined" : "L'identfiant de Account n'est pas d\u00E9fini",
+
+	"AccountAddress" : "AccountAddress",
+	"accountAddress.id" : "id",
+	"accountAddress.addressLine1" : "addressLine1",
+	"accountAddress.addressLine2" : "addressLine2",
+	"accountAddress.city" : "city",
+	"accountAddress.state" : "state",
+	"accountAddress.zipcode" : "zipcode",
+	"accountAddress.accountId" : "accountId",
+	"accountAddress.accountTypeId" : "accountTypeId",
+	"accountAddress.id.not.defined" : "L'identfiant de AccountAddress n'est pas d\u00E9fini",
+
+	"AccountType" : "AccountType",
+	"accountType.id" : "id",
+	"accountType.accountCode" : "accountCode",
+	"accountType.accountName" : "accountName",
+	"accountType.id.not.defined" : "L'identfiant de AccountType n'est pas d\u00E9fini",
+
+	"AddressType" : "AddressType",
+	"addressType.id" : "id",
+	"addressType.addressCode" : "addressCode",
+	"addressType.id.not.defined" : "L'identfiant de AddressType n'est pas d\u00E9fini",
+
+	"PaymentSchedule" : "PaymentSchedule",
+	"paymentSchedule.id" : "id",
+	"paymentSchedule.nextPaymentDue" : "nextPaymentDue",
+	"paymentSchedule.balanceDue" : "balanceDue",
+	"paymentSchedule.accountId" : "accountId",
+	"paymentSchedule.id.not.defined" : "L'identfiant de PaymentSchedule n'est pas d\u00E9fini",
+
+	"server.not.responding": "Le serveur ne r\u00e9pond pas",
+	"url.invalid": "URL invalide : {value}",
+	"url.bad": "URL incorrecte : {value}",
+
+	"app.version" : "Version"
+}

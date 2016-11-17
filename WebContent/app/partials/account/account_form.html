@@ -1,0 +1,74 @@
+<fieldset class="col-sm-12 bordure">
+    <legend class="legende">{{ 'Account' | translate }}</legend>
+
+    <div ng-include src="'partials/message-include.html'"></div>
+
+    <form class="well form-horizontal">
+
+        <div class="form-group">
+            <label for="account_accountName" class="col-sm-2 control-label">{{ 'account.accountName' | translate }}</label>
+            <div class="col-sm-10">
+                <input type="text" id="account_accountName" name="accountName" ng-model="account.accountName" class="form-control" maxLength="45" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="account_originalBalance" class="col-sm-2 control-label">{{ 'account.originalBalance' | translate }}</label>
+            <div class="col-sm-10">
+                <input type="text" id="account_originalBalance" name="originalBalance" ng-model="account.originalBalance" class="form-control" maxLength="20" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="account_currentBalance" class="col-sm-2 control-label">{{ 'account.currentBalance' | translate }}</label>
+            <div class="col-sm-10">
+                <input type="text" id="account_currentBalance" name="currentBalance" ng-model="account.currentBalance" class="form-control" maxLength="20" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="account_dateOpened" class="col-sm-2 control-label">{{ 'account.dateOpened' | translate }}</label>
+            <div class="col-sm-10">
+                <input id="account_dateOpened" bs-datepicker data-autoclose="1" ng-model="account.dateOpened" name="dateOpened" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="account_dateClosed" class="col-sm-2 control-label">{{ 'account.dateClosed' | translate }}</label>
+            <div class="col-sm-10">
+                <input id="account_dateClosed" bs-datepicker data-autoclose="1" ng-model="account.dateClosed" name="dateClosed" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="account_dateCreated" class="col-sm-2 control-label">{{ 'account.dateCreated' | translate }}</label>
+            <div class="col-sm-10">
+                <input id="account_dateCreated" bs-datepicker data-autoclose="1" ng-model="account.dateCreated" name="dateCreated" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="account_dateModified" class="col-sm-2 control-label">{{ 'account.dateModified' | translate }}</label>
+            <div class="col-sm-10">
+                <input id="account_dateModified" bs-datepicker data-autoclose="1" ng-model="account.dateModified" name="dateModified" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="account_accountTypeId" class="col-sm-2 control-label">{{ 'account.accountTypeId' | translate }}</label>
+            <div class="col-sm-10">
+                <select id="account_accountTypeId" ng-model="account.accountTypeId" name="accountTypeId" class="form-control">
+                    <option value=""></option>
+                    <option ng-repeat="accountType in items.accountTypes" title="{{accountType.label}}" ng-selected="{{accountType.value == account.accountTypeId}}" value="{{accountType.value}}">{{accountType.label}}</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-2">
+                <a role="button" class="btn btn-danger btn-block" ng-click="delete(account.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+            </div>
+            <div class="col-sm-offset-4 col-sm-2">
+                <a role="button" class="btn btn-default btn-block" href="#/account">{{ 'cancel' | translate }}</a>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+            </div>
+        </div>
+    </form>
+
+</fieldset>

@@ -1,0 +1,30 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'AccountAddress' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						 
+						<th>{{ 'accountAddress.addressLine1' | translate }}</th>
+						<th>{{ 'accountAddress.addressLine2' | translate }}</th>
+						<th>{{ 'accountAddress.city' | translate }}</th>
+						<th>{{ 'accountAddress.state' | translate }}</th>
+						<th>{{ 'accountAddress.zipcode' | translate }}</th>
+						<th><a class="btn btn-info" href='#/accountAddress/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="accountAddress in accountAddresss">
+						 
+						<td>{{accountAddress.addressLine1}}</td>
+						<td>{{accountAddress.addressLine2}}</td>
+						<td>{{accountAddress.city}}</td>
+						<td>{{accountAddress.state}}</td>
+						<td>{{accountAddress.zipcode}}</td>
+						<td><a class="btn btn-info" href="#/accountAddress/{{accountAddress.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

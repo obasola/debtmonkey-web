@@ -1,0 +1,33 @@
+.entity li {
+	margin: 5px;
+	font-size: 1.2em;
+}
+.entity li a {
+	display: block;
+	width: 200px;
+	height: 30px;
+}
+.entity li a:hover {
+	color: #cc4444;
+}
+.languages {
+	float: right;
+}
+.logo {
+	background: url("../img/logo.png") 0 5px no-repeat;
+	padding-left: 73px;
+}
+.arrow_up {
+    width:0;
+    height:0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid black;
+}
+.arrow_down {
+    width:0;
+    height:0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid black;
+}

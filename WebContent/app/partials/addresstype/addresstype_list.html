@@ -1,0 +1,22 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'AddressType' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						 
+						<th>{{ 'addressType.addressCode' | translate }}</th>
+						<th><a class="btn btn-info" href='#/addressType/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="addressType in addressTypes">
+						 
+						<td>{{addressType.addressCode}}</td>
+						<td><a class="btn btn-info" href="#/addressType/{{addressType.id}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

@@ -1,0 +1,71 @@
+	<fieldset class="col-sm-12 bordure">
+		<legend class="legende">{{ 'AccountAddress' | translate }}</legend>
+		
+		<div ng-include src="'partials/message-include.html'"></div>
+   		
+		<form class="well form-horizontal">
+			 
+			<div class="form-group">
+				<label for="accountAddress_addressLine1" class="col-sm-2 control-label">{{ 'accountAddress.addressLine1' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountAddress_addressLine1" name="addressLine1" ng-model="accountAddress.addressLine1" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountAddress_addressLine2" class="col-sm-2 control-label">{{ 'accountAddress.addressLine2' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountAddress_addressLine2" name="addressLine2" ng-model="accountAddress.addressLine2" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountAddress_city" class="col-sm-2 control-label">{{ 'accountAddress.city' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountAddress_city" name="city" ng-model="accountAddress.city" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountAddress_state" class="col-sm-2 control-label">{{ 'accountAddress.state' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountAddress_state" name="state" ng-model="accountAddress.state" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountAddress_zipcode" class="col-sm-2 control-label">{{ 'accountAddress.zipcode' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="accountAddress_zipcode" name="zipcode" ng-model="accountAddress.zipcode" class="form-control" maxLength="5" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountAddress_accountId" class="col-sm-2 control-label">{{ 'accountAddress.accountId' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="accountAddress_accountId" ng-model="accountAddress.accountId" name="accountId" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="account in items.accounts" title="{{account.label}}" ng-selected="{{account.value == accountAddress.accountId}}" value="{{account.value}}">{{account.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="accountAddress_accountTypeId" class="col-sm-2 control-label">{{ 'accountAddress.accountTypeId' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="accountAddress_accountTypeId" ng-model="accountAddress.accountTypeId" name="accountTypeId" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="accountType in items.accountTypes" title="{{accountType.label}}" ng-selected="{{accountType.value == accountAddress.accountTypeId}}" value="{{accountType.value}}">{{accountType.label}}</option>
+                    </select>
+				</div>
+			</div>
+
+			<!-- ACTION BUTTONS -->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-2">
+					<a role="button" class="btn btn-danger btn-block" ng-click="delete(accountAddress.id)" ng-show="mode != 'create'">{{ 'delete' | translate }}</a>
+				</div>
+    			<div class="col-sm-offset-4 col-sm-2">
+					<a role="button" class="btn btn-default btn-block" href="#/accountAddress">{{ 'cancel' | translate }}</a>
+				</div>
+    			<div class="col-sm-2">
+					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
+				</div>
+			</div>
+		</form>
+			
+    </fieldset>
