@@ -9,6 +9,9 @@
                 <th ng-click="getSortData('accountId')">{{ 'paymentSchedule.accountId' | translate }} 
                     <div ng-class="getSortClass('accountId')"></div></th>
                 
+                <th ng-click="getSortData('dateLastPayment')">{{ 'paymentSchedule.dateLastPayment' | translate }}
+                    <div ng-class="getSortClass('dateLastPayment')"></div></th>
+                
                 <th ng-click="getSortData('nextPaymentDue')">{{ 'paymentSchedule.nextPaymentDue' | translate }}
                     <div ng-class="getSortClass('nextPaymentDue')"></div></th>
                 
@@ -25,6 +28,7 @@
                         <option ng-repeat="account in items.accounts" title="{{account.label}}" ng-selected="{{account.value == paymentSchedule.accountId}}" value="{{account.value}}">{{account.label}}</option>
                     </select>
                 </td>
+                <td>{{paymentSchedule.dateLastPayment| date:'shortDate'}}</td>
                 <td>{{paymentSchedule.nextPaymentDue| date:'shortDate'}}</td>
                 <td>{{paymentSchedule.balanceDue| number }}</td>
                 <td><a class="btn btn-info" href="#/paymentSchedule/{{paymentSchedule.id}}">{{ 'edit' | translate }}</a></td>

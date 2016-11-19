@@ -18,6 +18,7 @@
 	"account.originalBalance" : "originalBalance",
 	"account.currentBalance" : "currentBalance",
 	"account.dateOpened" : "dateOpened",
+        "account.dateLastPayment" : "Last Payment",
 	"account.dateClosed" : "dateClosed",
 	"account.dateCreated" : "dateCreated",
 	"account.dateModified" : "dateModified",
@@ -48,7 +49,8 @@
 
 	"PaymentSchedule" : "PaymentSchedule",
 	"paymentSchedule.id" : "id",
-	"paymentSchedule.nextPaymentDue" : "Due Date",
+	"paymentSchedule.nextPaymentDue" : "Next Payment Due",
+        "paymentSchedule.dateLastPayment" : "Last Payment",
 	"paymentSchedule.balanceDue" : "Amount Due",
 	"paymentSchedule.accountId" : "Account",
 	"paymentSchedule.id.not.defined" : "PaymentSchedule identifier is not defined",
