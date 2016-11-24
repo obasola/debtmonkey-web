@@ -12,6 +12,15 @@
 	"save ok" : "Save ok",
 	"cancel" : "Cancel",
 
+        "PaymentHistory" : "PaymentHistory",
+	"paymentHistory.idpaymentHistory" : "idpaymentHistory",
+	"paymentHistory.amountPaid" : "amountPaid",
+	"paymentHistory.datePaid" : "datePaid",
+	"paymentHistory.dateModified" : "dateModified",
+	"paymentHistory.dateCreated" : "dateCreated",
+	"paymentHistory.accountId" : "accountId",
+	"paymentHistory.id.not.defined" : "PaymentHistory identifier is not defined",
+    
 	"Account" : "Account",
 	"account.id" : "id",
 	"account.accountName" : "accountName",

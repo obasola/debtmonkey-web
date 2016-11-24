@@ -41,6 +41,15 @@
 					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
 				</div>
 			</div>
+                        <div class="col-sm-2">
+                            <ul>
+                                <li><a href="#/paymentHistory">{{ 'PaymentHistory' | translate }}</a></li>
+                            </ul>
+                        </div>
 		</form>
 			
     </fieldset>
+
+<div>
+    <div ng-include src='../paymenthistory/paymenthistory_list.html'/>
+</div>

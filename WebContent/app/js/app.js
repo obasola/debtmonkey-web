@@ -27,6 +27,7 @@ var myApp = angular.module('myApp', [
   ,'accountType.module'
   ,'addressType.module'
   ,'paymentSchedule.module'
+  ,'paymentHistory.module'
 ]);
 
 /**

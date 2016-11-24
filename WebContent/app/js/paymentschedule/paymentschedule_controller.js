@@ -3,12 +3,14 @@
 /**
  * Controller for PaymentSchedule
  **/
-paymentScheduleModule.controller('PaymentScheduleCtrl', ['PaymentSchedule', 'Account', 'AccountType', '$scope', '$routeParams', '$http', '$location', '$cookies', 'MessageHandler', 'restURL', function (PaymentSchedule, Account, AccountType, $scope, $routeParams, $http, $location, $cookies, MessageHandler, restURL) {
+paymentScheduleModule.controller('PaymentScheduleCtrl', ['PaymentSchedule', 'PaymentHistory', 'Account', 'AccountType', '$scope', '$routeParams', '$http', '$location', '$cookies', 'MessageHandler', 'restURL', function (PaymentSchedule, PaymentHistory, Account, AccountType, $scope, $routeParams, $http, $location, $cookies, MessageHandler, restURL) {
         'Account', // edition mode
                 $scope.mode = null;
 
-        // list of paymentSchedules
+        // list of paymentSchedules and Histories
         $scope.paymentSchedules = [];
+        $scope.paymentHistory = [];
+    
         // paymentSchedule to edit
         $scope.paymentSchedule = null;
 
@@ -75,7 +77,9 @@ paymentScheduleModule.controller('PaymentScheduleCtrl', ['PaymentSchedule', 'Acc
                 MessageHandler.manageException(ex);
             }
         }
+        
 
+        
         /**
          * Go to the paymentSchedules list page
          */
@@ -91,6 +95,7 @@ paymentScheduleModule.controller('PaymentScheduleCtrl', ['PaymentSchedule', 'Acc
             $location.path('/paymentSchedule/' + id);
         }
 
+        
         // Actions
 
         /**
