@@ -12,16 +12,19 @@
 	"save ok" : "Save ok",
 	"cancel" : "Cancel",
 
-        "PaymentHistory" : "PaymentHistory",
+        "ScheduleHistory" : "Payment History",
+        "PaymentHistory" : "Payment History List",
 	"paymentHistory.idpaymentHistory" : "idpaymentHistory",
 	"paymentHistory.amountPaid" : "amountPaid",
 	"paymentHistory.datePaid" : "datePaid",
 	"paymentHistory.dateModified" : "dateModified",
 	"paymentHistory.dateCreated" : "dateCreated",
 	"paymentHistory.accountId" : "accountId",
+    
+	"paymentSchedule.autoPayment" : "autoPayment",
 	"paymentHistory.id.not.defined" : "PaymentHistory identifier is not defined",
     
-	"Account" : "Account",
+	"Account" : "Accounts",
 	"account.id" : "id",
 	"account.accountName" : "accountName",
 	"account.originalBalance" : "originalBalance",
@@ -34,7 +37,7 @@
 	"account.accountTypeId" : "accountTypeId",
 	"account.id.not.defined" : "Account identifier is not defined",
 
-	"AccountAddress" : "AccountAddress",
+	"AccountAddress" : "Account Addresses",
 	"accountAddress.id" : "id",
 	"accountAddress.addressLine1" : "addressLine1",
 	"accountAddress.addressLine2" : "addressLine2",
@@ -45,18 +48,18 @@
 	"accountAddress.accountTypeId" : "accountTypeId",
 	"accountAddress.id.not.defined" : "AccountAddress identifier is not defined",
 
-	"AccountType" : "AccountType",
+	"AccountType" : "Account Types",
 	"accountType.id" : "id",
 	"accountType.accountCode" : "accountCode",
 	"accountType.accountName" : "accountName",
 	"accountType.id.not.defined" : "AccountType identifier is not defined",
 
-	"AddressType" : "AddressType",
+	"AddressType" : "Address Types",
 	"addressType.id" : "id",
 	"addressType.addressCode" : "addressCode",
 	"addressType.id.not.defined" : "AddressType identifier is not defined",
 
-	"PaymentSchedule" : "PaymentSchedule",
+	"PaymentSchedule" : "Payment Schedules",
 	"paymentSchedule.id" : "id",
 	"paymentSchedule.nextPaymentDue" : "Next Payment Due",
         "paymentSchedule.dateLastPayment" : "Last Payment",

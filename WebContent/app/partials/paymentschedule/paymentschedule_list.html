@@ -17,6 +17,8 @@
                 
                 <th ng-click="getSortData('balanceDue')">{{ 'paymentSchedule.balanceDue' | translate }}
                     <div ng-class="getSortClass('balanceDue')"></div></th>
+                    
+                <th  ng-click="getSortData('autoPayment')">{{ 'paymentSchedule.autoPayment' | translate }}</th>
                 <th><a class="btn btn-info" href='#/paymentSchedule/new'>{{ 'create' | translate }}</a></th>
             </tr>
         </thead>
@@ -31,6 +33,7 @@
                 <td>{{paymentSchedule.dateLastPayment| date:'shortDate'}}</td>
                 <td>{{paymentSchedule.nextPaymentDue| date:'shortDate'}}</td>
                 <td>{{paymentSchedule.balanceDue| number }}</td>
+                <td>{{paymentSchedule.autoPayment  == 1 ? 'Y' : 'N'}}</td>
                 <td><a class="btn btn-info" href="#/paymentSchedule/{{paymentSchedule.id}}">{{ 'edit' | translate }}</a></td>
             </tr>
         </tbody>

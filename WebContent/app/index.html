@@ -1,95 +1,106 @@
 <!doctype html>
 <html lang="en" ng-app="myApp">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<title>debtMonkey</title>
+        <title>debtMonkey</title>
 
-	<!-- style -->
-	<link href="css/bootstrap.min.css" rel="stylesheet"  type="text/css" />
-	<link href="css/bootstrap-theme.min.css" rel="stylesheet"  type="text/css" />
-	<link href="css/bootstrap-datepicker.css" rel="stylesheet"  type="text/css" />
-	<link href="css/app.css" rel="stylesheet"  type="text/css" />
-	
-</head>
-<body>
+        <!-- style -->
+        <link href="css/bootstrap.min.css" rel="stylesheet"  type="text/css" />
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet"  type="text/css" />
+        <link href="css/bootstrap-datepicker.css" rel="stylesheet"  type="text/css" />
+        <link href="css/app.css" rel="stylesheet"  type="text/css" />
 
-    <nav class="navbar navbar-inverse navbar-static-top">
-      <div class="container">
-        <div class="navbar-inner">
-          	<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            	<span class="icon-bar"></span>
-            	<span class="icon-bar"></span>
-        		<span class="icon-bar"></span>
-        	</a>
-			<a class="navbar-brand logo" href="#" data-translate="debtMONKEY"></a>
-			<ul class="nav navbar-nav languages" ng-controller="TranslateCtrl">
- 				<li><a class="navbar-brand" href="" ng-click="">
-        	        <span class="glyphicon glyphicon-th-large"></span>
-            	    <span>Accounts</span>
-				</a></li>
-				<li><a class="navbar-brand" href="" ng-click="">
-        	        <span class="glyphicon glyphicon-th-large"></span>
-            	   <span>Dashboard</span>
-				</a></li>
-			</ul>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-inner">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                   
+                    <ul style="margin-top: -2.1em;" ng-controller="TranslateCtrl">
+                        <li><a class="navbar-brand" href="../app/index.html" ng-click="">
+                                <span class="logo" style="width:100%; height: 105px;float:left;">
+                                    <span style="margin-left: 1.2em; font-size:18pt;">debtMonkey</span>
+                                </span>
+                            
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav languages" ng-controller="TranslateCtrl">
+                        
+                        <li><a class="navbar-brand" href="#/account" ng-click="">
+                                <span class="glyphicon glyphicon-th-large"></span>
+                                <span>Accounts</span>
+                            </a>
+                        </li>
+                        <li><a class="navbar-brand" href="" ng-click="">
+                                <span class="glyphicon glyphicon-th-large"></span>
+                                <span>Dashboard</span>
+                            </a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div ng-view></div>
+            <div><span data-translate="app.version"></span>&nbsp;<span data-app-version></span></div>
         </div>
-      </div>
-    </nav>
-	
-    <div class="container">
-		<div ng-view></div>
-	  	<div><span data-translate="app.version"></span>&nbsp;<span data-app-version></span></div>
-	</div>
 
-	<!-- javascript -->
-	<script src="lib/moment-with-langs.js"></script>
-	<script src="lib/validation.js"></script>
-	<script src="lib/jquery-1.10.2.min.js"></script>
-	<script src="lib/jquery-ui-1.10.4.custom.min.js"></script>
-  	<!-- In production use:
-  	<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  	-->
-	<script src="lib/angular/angular.js"></script>
-	<script src="lib/angular/angular-route.js"></script>
-	<script src="lib/angular/angular-resource.js"></script>
-	<script src="lib/angular/angular-cookies.js"></script>
-	<script src="lib/angular/angular-animate.js"></script>
-        
+        <!-- javascript -->
+        <script src="lib/moment-with-langs.js"></script>
+        <script src="lib/validation.js"></script>
+        <script src="lib/jquery-1.10.2.min.js"></script>
+        <script src="lib/jquery-ui-1.10.4.custom.min.js"></script>
+        <!-- In production use:
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+        -->
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular/angular-route.js"></script>
+        <script src="lib/angular/angular-resource.js"></script>
+        <script src="lib/angular/angular-cookies.js"></script>
+        <script src="lib/angular/angular-animate.js"></script>
+
         <!-- script src="bower-components/angular-smart-table/dist/smart-table.js"></script -->
-	<script src="lib/angular-translate/angular-translate.js"></script> 
-	<script src="lib/angular-translate/angular-translate-storage-cookie.js"></script>
-	<script src="lib/angular-translate/angular-translate-storage-local.js"></script>
-	<script src="lib/angular-translate/angular-translate-loader-static-files.js"></script>
-	<script src="lib/angular-dynamic-locale/tmhDynamicLocale.js"></script>
-	<script src="lib/angular-strap/angular-strap.min.js"></script>
-	<script src="lib/angular-strap/angular-strap.tpl.min.js"></script>
-	<script src="js/app.js"></script>
-	<script src="js/i18n.js"></script>
-	<script src="js/services.js"></script>
-	<script src="js/messages_handler.js"></script>
-	<script src="js/account/account_module.js"></script>
-	<script src="js/account/account_factory.js"></script>
-	<script src="js/account/account_controller.js"></script>
-	<script src="js/accountaddress/accountaddress_module.js"></script>
-	<script src="js/accountaddress/accountaddress_factory.js"></script>
-	<script src="js/accountaddress/accountaddress_controller.js"></script>
-	<script src="js/accounttype/accounttype_module.js"></script>
-	<script src="js/accounttype/accounttype_factory.js"></script>
-	<script src="js/accounttype/accounttype_controller.js"></script>
-	<script src="js/addresstype/addresstype_module.js"></script>
-	<script src="js/addresstype/addresstype_factory.js"></script>
-	<script src="js/addresstype/addresstype_controller.js"></script>
-        
+        <script src="lib/angular-translate/angular-translate.js"></script> 
+        <script src="lib/angular-translate/angular-translate-storage-cookie.js"></script>
+        <script src="lib/angular-translate/angular-translate-storage-local.js"></script>
+        <script src="lib/angular-translate/angular-translate-loader-static-files.js"></script>
+        <script src="lib/angular-dynamic-locale/tmhDynamicLocale.js"></script>
+        <script src="lib/angular-strap/angular-strap.min.js"></script>
+        <script src="lib/angular-strap/angular-strap.tpl.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/i18n.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/messages_handler.js"></script>
+        <script src="js/account/account_module.js"></script>
+        <script src="js/account/account_factory.js"></script>
+        <script src="js/account/account_controller.js"></script>
+        <script src="js/accountaddress/accountaddress_module.js"></script>
+        <script src="js/accountaddress/accountaddress_factory.js"></script>
+        <script src="js/accountaddress/accountaddress_controller.js"></script>
+        <script src="js/accounttype/accounttype_module.js"></script>
+        <script src="js/accounttype/accounttype_factory.js"></script>
+        <script src="js/accounttype/accounttype_controller.js"></script>
+        <script src="js/addresstype/addresstype_module.js"></script>
+        <script src="js/addresstype/addresstype_factory.js"></script>
+        <script src="js/addresstype/addresstype_controller.js"></script>
+
         <script src="js/paymenthistory/paymenthistory_module.js"></script>
-	<script src="js/paymenthistory/paymenthistory_factory.js"></script>
-	<script src="js/paymenthistory/paymenthistory_controller.js"></script>
-        
-	<script src="js/paymentschedule/paymentschedule_module.js"></script>
-	<script src="js/paymentschedule/paymentschedule_factory.js"></script>
-	<script src="js/paymentschedule/paymentschedule_controller.js"></script>
-	<script src="js/filters.js"></script>
-	<script src="js/directives.js"></script>
-</body>
+        <script src="js/paymenthistory/paymenthistory_factory.js"></script>
+        <script src="js/paymenthistory/paymenthistory_controller.js"></script>
+
+        <script src="js/paymentschedule/paymentschedule_module.js"></script>
+        <script src="js/paymentschedule/paymentschedule_factory.js"></script>
+        <script src="js/paymentschedule/paymentschedule_controller.js"></script>
+        <script src="js/filters.js"></script>
+        <script src="js/directives.js"></script>
+    </body>
 </html>

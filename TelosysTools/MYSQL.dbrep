@@ -93,6 +93,7 @@
 <column dateType="D" dbComment="" dbDefaultValue="" dbName="next_payment_due" dbNotNull="false" dbPosition="2" dbSize="10" dbTypeName="DATE" inputType="date" javaName="nextPaymentDue" javaType="java.util.Date" jdbcTypeCode="91" label="Next payment due" notNull="false" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="balance_due" dbNotNull="false" dbPosition="3" dbSize="22" dbTypeName="DOUBLE" inputType="number" javaName="balanceDue" javaType="java.lang.Double" jdbcTypeCode="8" label="Balance due" notNull="false" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="Account_id" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="INT" inputType="number" javaName="accountId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Account id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="auto_payment" dbNotNull="false" dbPosition="5" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="autoPayment" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Auto payment" notNull="false" selected="true"/>
 <fk name="fk_Payment_Schedule_Account1">
 <fkcol colname="Account_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="Payment_Schedule" tableref="Account" updaterule="3"/>
 </fk>

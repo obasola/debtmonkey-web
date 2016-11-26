@@ -14,7 +14,7 @@
 	float: right;
 }
 .logo {
-	background: url("../img/logo.png") 0 5px no-repeat;
+	background: url("../img/rsz_debtmonkey.jpg")  no-repeat;
 	padding-left: 73px;
 }
 .arrow_up {
@@ -54,6 +54,9 @@
   display: block;
   overflow-y: auto;
   
+}
+.pendingSelection {
+  background-color: pink
 }
 .cssAccountName {
     position:absolute;
