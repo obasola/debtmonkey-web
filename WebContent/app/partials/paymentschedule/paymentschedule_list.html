@@ -34,7 +34,10 @@
                 <td>{{paymentSchedule.nextPaymentDue| date:'shortDate'}}</td>
                 <td>{{paymentSchedule.balanceDue| number }}</td>
                 <td>{{paymentSchedule.autoPayment  == 1 ? 'Y' : 'N'}}</td>
-                <td><a class="btn btn-info" href="#/paymentSchedule/{{paymentSchedule.id}}">{{ 'edit' | translate }}</a></td>
+                <td>
+                	<a class="btn btn-info" href="#/paymentSchedule/{{paymentSchedule.id}}">{{ 'edit' | translate }}</a>
+                	<a class="btn btn-info" href="" ng-click="">{{ 'markAsPaid' | translate }}</a>
+                </td>
             </tr>
         </tbody>
     </table>
