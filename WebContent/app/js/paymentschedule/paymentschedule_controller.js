@@ -3,7 +3,7 @@
 /**
  * Controller for PaymentSchedule
  **/
-paymentScheduleModule.controller('PaymentScheduleCtrl', ['PaymentSchedule', 'PaymentHistory', 'Account', 'AccountType', '$scope', '$routeParams', '$http', '$location', '$cookies', 'MessageHandler', 'restURL', function (PaymentSchedule, PaymentHistory, Account, AccountType, $scope, $routeParams, $http, $location, $cookies, MessageHandler, restURL) {
+paymentScheduleModule.controller('PaymentScheduleCtrl', ['PaymentSchedule', 'PaymentHistory', 'Account', 'AccountType', 'exDialog', '$scope', '$routeParams', '$http', '$location', '$cookies', 'MessageHandler', 'restURL', function (PaymentSchedule, PaymentHistory, Account, AccountType, exDialog,$scope, $routeParams, $http, $location, $cookies, MessageHandler, restURL) {
         'Account', // edition mode
                 $scope.mode = null;
 
@@ -97,7 +97,40 @@ paymentScheduleModule.controller('PaymentScheduleCtrl', ['PaymentSchedule', 'Pay
 
         
         // Actions
-
+        $scope.modifyAccount = function (scheduleId, accountId) {
+            // alert("scheduleId ="+scheduleId+" accountId = "+accountId);
+             $scope.paymentSchedule = null;
+             try{
+                
+                 PaymentSchedule.get(scheduleId).then(
+                         function (success) {
+                             $scope.paymentSchedule = success.data;
+                             $scope.displayAcctMaintModal();
+                         },
+                         MessageHandler.manageError);
+             }catch(ex) {
+                 MessageHandler.manageException(ex);
+             }
+             
+             
+         };
+         $scope.displayAcctMaintModal = function() {
+             exDialog.openPrime({
+                 title: "Account Detail",
+                 scope: $scope,
+                 template: 'partials/paymentschedule/modal-template.html',
+                 controller: 'PaymentScheduleCtrl',
+                 width: '480px',
+                 keepOpenForAction: true,
+                 closeByClickOutside: false,
+                 dialogAddClass: 'border-to-dialog'
+                 //animation: false,
+                 //grayBackground: false            
+             });
+         }
+         $scope.closeAcctMaintDialog = function () {
+             exDialog.closeAll();
+         }
         /**
          * Save paymentSchedule
          */

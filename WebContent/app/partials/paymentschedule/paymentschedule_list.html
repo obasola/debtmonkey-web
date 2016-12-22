@@ -22,7 +22,7 @@
                 <th><a class="btn btn-info" href='#/paymentSchedule/new'>{{ 'create' | translate }}</a></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody>      
             <tr ng-repeat="paymentSchedule in paymentSchedules | orderBy:sortColumn:reverseSort">
                 <td>
                     <select id="paymentSchedule_accountId" ng-model="paymentSchedule.accountId" name="accountId" class="form-control" disabled="true">
@@ -36,7 +36,8 @@
                 <td>{{paymentSchedule.autoPayment  == 1 ? 'Y' : 'N'}}</td>
                 <td>
                 	<a class="btn btn-info" href="#/paymentSchedule/{{paymentSchedule.id}}">{{ 'edit' | translate }}</a>
-                	<a class="btn btn-info" href="" ng-click="">{{ 'markAsPaid' | translate }}</a>
+                	<a class="btn btn-info" href="" ng-click="updateLastPayment(paymentSchedule.id)">{{ 'markAsPaid' | translate }}</a>
+                	<a class="btn btn-info" href="" ng-click="modifyAccount(paymentSchedule.id,paymentSchedule.accountId)">Quick Edit</a>
                 </td>
             </tr>
         </tbody>

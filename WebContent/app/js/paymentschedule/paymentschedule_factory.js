@@ -41,8 +41,8 @@ paymentScheduleModule.factory('PaymentSchedule', ['$http', 'restURL', function($
         /**
          * Get paymentSchedule
          * @param id id
-         * @return paymentSchedule
-         */
+         * @return paymentScheduleupdate
+		*/
     	get: function(id) {
     	    var url = entityURL + '/' + id;
         	return $http.get(url);

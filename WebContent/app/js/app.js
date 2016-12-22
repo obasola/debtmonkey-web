@@ -13,6 +13,7 @@ var myApp = angular.module('myApp', [
   ,'ngResource' 
   ,'ngCookies'
   ,'i18n'
+  ,'ngExDialog'
  // ,'smart-table'
   ,'pascalprecht.translate'
   ,'tmh.dynamicLocale'
@@ -28,7 +29,8 @@ var myApp = angular.module('myApp', [
   ,'addressType.module'
   ,'paymentSchedule.module'
   ,'paymentHistory.module'
-]);
+])
+
 
 /**
  * Main configuration
@@ -37,3 +39,29 @@ myApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {templateUrl: 'partials/welcome.html'});
   $routeProvider.otherwise({redirectTo: '/'});
 }]);
+//Dialog default settings.
+myApp.config(['exDialogProvider', function (exDialogProvider) {
+    exDialogProvider.setDefaults({        
+        template: 'ngExDialog/commonDialog.html', //from cache
+        //template: 'ngExDialog/commonDialog_0.html', //from file
+        width: '330px',
+        //Below items are set within the provider. Any value set here will overwrite that in the provider.
+        //closeByXButton: true,
+        //closeByClickOutside: true,
+        //closeByEscKey: true,
+        //appendToElement: '',
+        //beforeCloseCallback: '',
+        //grayBackground: true,
+        //cacheTemplate: true,
+        //draggable: true,
+        //animation: true,
+        //messageTitle: 'Information',
+        //messageIcon: 'info',
+        //messageCloseButtonLabel: 'OK',
+        //confirmTitle: 'Confirmation',
+        //confirmIcon: 'question',
+        //confirmActionButtonLabel: 'Yes',
+        //confirmCloseButtonLabel: 'No'
+    });
+}])
+;
