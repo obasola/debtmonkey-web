@@ -1,0 +1,48 @@
+<div style="margin-top: 1.5em;">
+   <fieldset class="col-sm-12 bordure">
+       
+    <h2>Account Maintenance</h2>
+    <form class="well form-horizontal">
+    <table style="margin-left: 0.5em; width:98%">                
+         <tr>
+            <th>Account Name</th>
+            <td><p>{{account.accountName}}</p></td>
+         </tr>
+         <tr>
+             <th>Auto Payment?</th>
+             <td>
+                 <label>
+                 <input type="radio" value="0" name="paymentSchedule.autoPayment" ng-model="paymentSchedule.autoPayment"/>
+                 Yes
+                 </label>
+                 <label>
+                 <input type="radio" value="1" name="paymentSchedule.autoPayment" ng-model="paymentSchedule.autoPayment"/>
+                 No
+                 </label>
+             </td>
+         </tr>
+         <tr>
+             <th>Bill-To Account</th>
+             <td><input type="text" value=""/></td>
+         </tr>
+         <tr>
+              <th>Payment Date</th>
+              <td><input id="paymentSchedule_nextPaymentDue" bs-datepicker data-autoclose="1" date-format="MM-dd-yyyy"
+			 ng-model="account.dateLastPayment" name="nextPaymentDue" class="form-control" value="{{account.dateLastPayment}}"/></td>
+         </tr>
+        <tr>                                    
+            <th>Amount Paid</th>
+            <td><input type="text" value=""/></td>
+        </tr>
+        <tr>
+ 
+            <td colspan="2" style="margin-bottom: -0.5em;">
+                <input type="button" name="save" value="Save" ng-click="closeAcctMaintDialog()" style="float:right;"/>
+                <input type="button" name="cancel" value="Cancel" ng-click="closeAcctMaintDialog()" style="float:right;"/>
+            </td>
+        
+        </tr>
+    </table>
+    </form>
+   </fieldset>
+</div>
