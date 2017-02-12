@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>debtmonkey</title>
+    <!-- style -->
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css"  type="text/css" />
+    <link rel="stylesheet" href="css/app.css" rel="stylesheet"  type="text/css" />
+    <link rel="stylesheet" href="css/ngExDialog/ngExDialog.css" type="text/css" />
+    <link rel="stylesheet" href="css/ngExDialog/Site.css" type="text/css" />
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css"/>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="fonts/ionicons.min.css">
+    <link rel="stylesheet" href="css/Footer-Clean.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"><img src="img/debtMonkey.jpg" height="75"></div>
+                <div class="col-md-10">
+                    <h1>DebtMonkey </h1></div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header"><a class="navbar-brand navbar-link" href="about.html">About </a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1" style="height:20px;">
+                <ul class="nav navbar-nav">
+                    <li class="active" role="presentation"><a href="#/welcome">Welcome </a></li>
+
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#">Accounts <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="#/account_list">List Active</a></li>
+                            <li role="presentation"><a href="#/new_account">Add Account</a></li>
+                            <li role="presentation"><a href="#/account_history">Account History</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="schedules.html">Schedules </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="#/scheduleHistories">{{ 'ScheduleHistory' | translate }}</a></li>
+                            <li role="presentation"><a href="#">Second Item</a></li>
+                            <li role="presentation"><a href="#">Third Item</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="admin.html">Admin <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="presentation"><a href="#">First Item</a></li>
+                            <li role="presentation"><a href="#">Second Item</a></li>
+                            <li role="presentation"><a href="#">Third Item</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                    <div ng-view></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-clean">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-4 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Legacy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 col-sm-4 item">
+                        <h3>Careers</h3>
+                        <ul>
+                            <li><a href="#">Job openings</a></li>
+                            <li><a href="#">Employee success</a></li>
+                            <li><a href="#">Benefits</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                        <p class="copyright">Kumasi Software Group LLC © 2017</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <footer></footer>
+    <script src="js/jquery.min.js"></script>
+    <script src="bower_components/angular/angular-1.5.8.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate/angular-translate-loader-static-files.js"></script>
+    <script src="bower_components/angular-translate/angular-translate-storage-cookie.js"></script>
+    <script src="bower_components/angular-translate/angular-translate-storage-local.min.js"></script>
+    <script src="bower_components/angular-dynamic-locale/tmhDynamicLocale.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.js"></script>
+    <script src="bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-date/dist/date.js"></script>
+    <script src="lib/ngExDialog/ngExDialog.js"></script>
+    <!-- script src="bower-components/angular-smart-table/dist/smart-table.js"></script -->
+
+    <script src="js/app.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/messages_handler.js"></script>
+    <script src="js/account/account_module.js"></script>
+    <script src="js/account/account_factory.js"></script>
+    <script src="js/account/account_controller.js"></script>
+    <script src="js/accountaddress/accountaddress_module.js"></script>
+    <script src="js/accountaddress/accountaddress_factory.js"></script>
+    <script src="js/accountaddress/accountaddress_controller.js"></script>
+    <script src="js/accounttype/accounttype_module.js"></script>
+    <script src="js/accounttype/accounttype_factory.js"></script>
+    <script src="js/accounttype/accounttype_controller.js"></script>
+    <script src="js/addresstype/addresstype_module.js"></script>
+    <script src="js/addresstype/addresstype_factory.js"></script>
+    <script src="js/addresstype/addresstype_controller.js"></script>
+    <script src="js/modal/modal_controller.js"></script>
+    <script src="js/paymenthistory/paymenthistory_module.js"></script>
+    <script src="js/paymenthistory/paymenthistory_factory.js"></script>
+    <script src="js/paymenthistory/paymenthistory_controller.js"></script>
+
+    <script src="js/paymentschedule/paymentschedule_module.js"></script>
+    <script src="js/paymentschedule/paymentschedule_factory.js"></script>
+    <script src="js/paymentschedule/paymentschedule_controller.js"></script>
+
+
+    <!-- script src="js/ngExDialog/ngExDialog.js"></script -->
+
+    <script src="js/filters.js"></script>
+    <script src="js/directives.js"></script>
+</body>
+
+</html>

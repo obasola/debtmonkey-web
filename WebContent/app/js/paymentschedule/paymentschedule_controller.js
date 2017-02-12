@@ -3,17 +3,21 @@
 /**
  * Controller for PaymentSchedule
  **/
-paymentScheduleModule.controller('PaymentScheduleCtrl', ['PaymentSchedule', 'PaymentHistory', 'Account', 'AccountType', 'exDialog', '$scope', '$routeParams', '$http', '$location', '$cookies', 'MessageHandler', 'restURL', function (PaymentSchedule, PaymentHistory, Account, AccountType, exDialog,$scope, $routeParams, $http, $location, $cookies, MessageHandler, restURL) {
-        'Account', // edition mode
-                $scope.mode = null;
+paymentScheduleModule.controller('PaymentScheduleCtrl', ['PaymentSchedule', 'PaymentHistory',
+        'Account', 'AccountType', 'exDialog', '$uibModal', '$scope', '$routeParams', '$http',
+        '$location','$cookies', 'MessageHandler', 'restURL',
+        function (PaymentSchedule, PaymentHistory, Account, AccountType, exDialog,$uibModal,
+          $scope, $routeParams, $http, $location, $cookies, MessageHandler, restURL) {
 
+        $scope.mode = null;
         // list of paymentSchedules and Histories
         $scope.paymentSchedules = [];
         $scope.paymentHistory = [];
-    
+
         // paymentSchedule to edit
         $scope.paymentSchedule = null;
-
+        $scope.scheduledAccount = null;
+        $scope.account = null;
         // referencies entities
         $scope.items = {};
         // accounts
@@ -21,30 +25,18 @@ paymentScheduleModule.controller('PaymentScheduleCtrl', ['PaymentSchedule', 'Pay
 
         $scope.sortColumn = 'name';
         $scope.reverseSort = false;
-        
+
         $scope.getSortData = function(column) {
             $scope.reverseSort = ($scope.sortColumn == column ? !$scope.reverseSort : false);
             $scope.sortColumn = column;
         };
-        
+
         $scope.getSortClass = function(column) {
             if($scope.sortColumn === column) {
                 return $scope.reverseSort ? 'arrowDown' : 'arrowUp';
             }
             return '';
         };
-        /**
-         * Load all referencies entities
-         */
-        $scope.loadAllReferencies = function () {
-            Account.getAllAsListItems().then(
-                    function (success) {
-                        $scope.items.accounts = success.data;
-                    },
-                    MessageHandler.manageError);
-
-        };
-
 
         /**
          * Refresh paymentSchedules list
@@ -52,7 +44,7 @@ paymentScheduleModule.controller('PaymentScheduleCtrl', ['PaymentSchedule', 'Pay
         $scope.refreshPaymentScheduleList = function () {
             try {
                 $scope.paymentSchedules = [];
-                $scope.loadAllReferencies();
+
                 PaymentSchedule.getAll().then(
                         function (success) {
                             $scope.paymentSchedules = success.data;
@@ -77,9 +69,9 @@ paymentScheduleModule.controller('PaymentScheduleCtrl', ['PaymentSchedule', 'Pay
                 MessageHandler.manageException(ex);
             }
         }
-        
 
-        
+
+
         /**
          * Go to the paymentSchedules list page
          */
@@ -95,42 +87,60 @@ paymentScheduleModule.controller('PaymentScheduleCtrl', ['PaymentSchedule', 'Pay
             $location.path('/paymentSchedule/' + id);
         }
 
-        
+
         // Actions
         $scope.modifyAccount = function (scheduleId, accountId) {
             // alert("scheduleId ="+scheduleId+" accountId = "+accountId);
              $scope.paymentSchedule = null;
+             $scope.account = null;
              try{
-                
                  PaymentSchedule.get(scheduleId).then(
                          function (success) {
-                             $scope.paymentSchedule = success.data;
-                             $scope.displayAcctMaintModal();
+                             $scope.scheduledAccount = success.data;
                          },
                          MessageHandler.manageError);
              }catch(ex) {
                  MessageHandler.manageException(ex);
              }
-             
-             
+
+
          };
-         $scope.displayAcctMaintModal = function() {
-             exDialog.openPrime({
-                 title: "Account Detail",
-                 scope: $scope,
-                 template: 'partials/paymentschedule/modal-template.html',
-                 controller: 'PaymentScheduleCtrl',
-                 width: '480px',
-                 keepOpenForAction: true,
-                 closeByClickOutside: false,
-                 dialogAddClass: 'border-to-dialog'
-                 //animation: false,
-                 //grayBackground: false            
-             });
-         }
+         $scope.$watch('scheduledAccount',  function(newValue, oldValue) {
+        	if(newValue != oldValue) {
+        		Account.get($scope.scheduledAccount.accountId).then(
+                        function (success) {
+                       	 $scope.account = success.data;
+                         $scope.$parent.paymentSchedule = $scope.scheduledAccount;
+                         $scope.$parent.paymentSchedule.accountName = $scope.account.accountName;
+                       	// alert("accountName = "+$scope.account.accountName);
+                       	// $scope.displayAcctMaintModal();
+                        $scope.openModalWindow();
+                        },
+                        MessageHandler.manageError);
+        	}
+         });
+         $scope.openModalWindow = function() {
+           $scope.modalInstance = $uibModal.open({
+             templateUrl: 'partials/paymentschedule/modal-template.html'
+           });
+         };
+         /**
+         * Load all referencies entities
+         */
+        $scope.loadAllReferencies = function () {
+            Account.getAllAsListItems().then(
+              function (success) {
+                  $scope.items.accounts = success.data;
+              },
+              MessageHandler.manageError);
+        };
+
          $scope.closeAcctMaintDialog = function () {
              exDialog.closeAll();
          }
+         $scope.updateLastPayment = function() {
+           alert("function not implemented.");
+         };
         /**
          * Save paymentSchedule
          */
@@ -175,11 +185,10 @@ paymentScheduleModule.controller('PaymentScheduleCtrl', ['PaymentSchedule', 'Pay
             // Creation page
             $scope.paymentSchedule = {};
             $scope.mode = 'create';
-            $scope.loadAllReferencies();
+
             $scope.bookorderitem = null;
         } else if ($routeParams.id != null) {
             // Edit page
-            $scope.loadAllReferencies();
             $scope.refreshPaymentSchedule($routeParams.id);
         } else {
             // List page

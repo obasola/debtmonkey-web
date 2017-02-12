@@ -10,15 +10,17 @@ if (typeof String.prototype.endsWith !== 'function') {
 // Declare app level module which depends on filters, and services
 var myApp = angular.module('myApp', [
    'ngRoute'
-  ,'ngResource' 
+  ,'ngResource'
   ,'ngCookies'
   ,'i18n'
   ,'ngExDialog'
+  ,'ui.bootstrap'
+  ,'ui.date'
  // ,'smart-table'
   ,'pascalprecht.translate'
-  ,'tmh.dynamicLocale'
-  ,'mgcrea.ngStrap.tooltip'
-  ,'mgcrea.ngStrap.datepicker'
+//  ,'tmh.dynamicLocale'
+//  ,'mgcrea.ngStrap.tooltip'
+//  ,'mgcrea.ngStrap.datepicker'
   ,'myApp.filters'
   ,'myApp.services'
   ,'myApp.directives'
@@ -41,7 +43,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
 }]);
 //Dialog default settings.
 myApp.config(['exDialogProvider', function (exDialogProvider) {
-    exDialogProvider.setDefaults({        
+    exDialogProvider.setDefaults({
         template: 'ngExDialog/commonDialog.html', //from cache
         //template: 'ngExDialog/commonDialog_0.html', //from file
         width: '330px',

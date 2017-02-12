@@ -6,7 +6,7 @@ describe('controllers', function(){
   beforeEach(module('accountAddress.module'));
   
   describe('AccountAddressCtrl', function(){
-    var AccountAddressCtrl, AccountAddress, Account,  AccountType, $rootScope, $scope, $routeParams, $httpBackend, $location, MessageHandler, $q, $controller;
+    var AccountAddressCtrl, AccountAddress, AddressType,  Account,  AccountType, $rootScope, $scope, $routeParams, $httpBackend, $location, MessageHandler, $q, $controller;
 	  
     beforeEach(inject(function($injector) {
     	$controller = $injector.get('$controller');
@@ -40,6 +40,12 @@ describe('controllers', function(){
     		}
     	};
 		
+				AddressType = {
+			getAllAsListItems: jasmine.createSpy("getAllAsListItems").andCallFake(function() {
+				return [];
+			})
+		};
+
 				Account = {
 			getAllAsListItems: jasmine.createSpy("getAllAsListItems").andCallFake(function() {
 				return [];
@@ -54,6 +60,7 @@ describe('controllers', function(){
 
 				AccountAddressCtrl = $controller('AccountAddressCtrl', {
     		'AccountAddress': AccountAddress,
+						'AddressType': AddressType,
 						'Account': Account,
 						'AccountType': AccountType,
 			    		'$scope': $scope,
@@ -74,7 +81,7 @@ describe('controllers', function(){
     	expect($scope.mode).toBeNull();
     	expect($scope.accountAddress).toBeNull();
     	expect($scope.accountAddresss).toBe('accountAddress1');
-    	expect(Object.keys($scope.items).length).toBe(2);
+    	expect(Object.keys($scope.items).length).toBe(3);
     	expect(MessageHandler.cleanMessage).toHaveBeenCalled();
     });
     
@@ -211,7 +218,7 @@ describe('controllers', function(){
     	expect($scope.mode).toBeNull();
     	expect($scope.accountAddress).toBeNull();
     	expect($scope.accountAddresss).toBe('accountAddress1');
-    	expect(Object.keys($scope.items).length).toBe(2);
+    	expect(Object.keys($scope.items).length).toBe(3);
     	expect(MessageHandler.cleanMessage).toHaveBeenCalled();
     });
 	

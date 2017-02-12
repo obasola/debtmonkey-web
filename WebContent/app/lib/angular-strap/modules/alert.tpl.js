@@ -1,15 +1,12 @@
 /**
  * angular-strap
- * @version v2.0.0-rc.3 - 2014-02-10
+ * @version v2.3.10 - 2016-10-17
  * @link http://mgcrea.github.io/angular-strap
- * @author Olivier Louvignes (olivier@mg-crea.com)
+ * @author Olivier Louvignes <olivier@mg-crea.com> (https://github.com/mgcrea)
  * @license MIT License, http://www.opensource.org/licenses/MIT
  */
-angular.module('mgcrea.ngStrap.alert').run(['$templateCache', function($templateCache) {
-  'use strict';
+'use strict';
 
-  $templateCache.put('alert/alert.tpl.html',
-    "<div class=\"alert alert-dismissable\" tabindex=\"-1\" ng-class=\"[type ? 'alert-' + type : null]\"><button type=\"button\" class=\"close\" ng-click=\"$hide()\">&times;</button> <strong ng-bind=\"title\"></strong>&nbsp;<span ng-bind-html=\"content\"></span></div>"
-  );
-
-}]);
+angular.module('mgcrea.ngStrap.alert').run([ '$templateCache', function($templateCache) {
+  $templateCache.put('alert/alert.tpl.html', '<div class="alert" ng-class="[type ? \'alert-\' + type : null]"><button type="button" class="close" ng-if="dismissable" ng-click="$hide()">&times;</button> <span ng-if="title"><strong ng-bind="title"></strong>&nbsp;<span ng-bind-html="content"></span> </span><span ng-if="!title" ng-bind-html="content"></span></div>');
+} ]);

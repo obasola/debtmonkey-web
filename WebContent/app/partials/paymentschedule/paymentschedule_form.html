@@ -1,49 +1,51 @@
-	<fieldset class="col-sm-12 bordure">
+	<fieldset class="col-sm-12 bordure" ng-init="loadAllReferencies()">
 		<legend class="legende">{{ 'PaymentSchedule' | translate }}</legend>
-		
+
 		<div ng-include src="'partials/message-include.html'"></div>
-   		
+
 		<form class="well form-horizontal">
-			
+
 			<div class="form-group">
 				<label for="paymentSchedule_accountId" class="col-sm-2 control-label">{{ 'paymentSchedule.accountId' | translate }}</label>
-				<div class="col-sm-10">
-                    <select id="paymentSchedule_accountId" ng-model="paymentSchedule.accountId" name="accountId" class="form-control" disabled="{{mode != new}}">
-						<option value=""></option>
-                        <option ng-repeat="account in items.accounts" title="{{account.label}}" ng-selected="{{account.value == paymentSchedule.accountId}}" value="{{account.value}}">{{account.label}}</option>
-                    </select>
+				<div class="col-sm-10" ng-if="paymentSchedule.accountName != null">{{paymentSchedule.accountName}}</div>
+        <div class="col-sm-10" ng-if="paymentSchedule.accountName == null">
+          <select id="paymentSchedule_accountId" ng-model="paymentSchedule.accountId" name="accountId" class="form-control">
+              <option value=""></option>
+              <option ng-repeat="account in items.accounts" title="{{account.label}}" ng-selected="{{account.value == paymentSchedule.accountId}}" value="{{account.value}}">{{account.label}}</option>
+          </select>
 				</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label for="paymentSchedule_dateLastPayment" class="col-sm-2 control-label">{{ 'paymentSchedule.dateLastPayment' | translate }}</label>
 				<div class="col-sm-10">
-					<input id="paymentSchedule_dateLastPayment" bs-datepicker data-autoclose="1" date-format="MM-dd-yyyy"
+					<input id="paymentSchedule_dateLastPayment" ui-date ui-date-format="yyyy-MM-dd"
 					 ng-model="paymentSchedule.dateLastPayment" name="dateLastPayment" class="form-control" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="paymentSchedule_nextPaymentDue" class="col-sm-2 control-label">{{ 'paymentSchedule.nextPaymentDue' | translate }}</label>
 				<div class="col-sm-10">
-					<input id="paymentSchedule_nextPaymentDue" bs-datepicker data-autoclose="1" date-format="MM-dd-yyyy"
+					<input id="paymentSchedule_nextPaymentDue" ui-date ui-date-format="yyyy-MM-dd"
 					 ng-model="paymentSchedule.nextPaymentDue" name="nextPaymentDue" class="form-control" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="paymentSchedule_balanceDue" class="col-sm-2 control-label">{{ 'paymentSchedule.balanceDue' | translate }}</label>
 				<div class="col-sm-10">
-					<input type="text" id="paymentSchedule_balanceDue" name="balanceDue" 
-					ng-model="paymentSchedule.balanceDue" class="form-control" maxLength="20" />
+					<input type="text" id="paymentSchedule_balanceDue"
+								 name="balanceDue" ui-date ui-date-format="yyyy-MM-dd"
+								 ng-model="paymentSchedule.balanceDue" class="form-control" maxLength="20" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="paymentSchedule_autoPayment" class="col-sm-2 control-label">{{ 'paymentSchedule.autoPayment' | translate }}</label>
 				<div class="col-sm-10">
-					<input type="text" id="paymentSchedule_autoPayment" name="autoPayment" 
+					<input type="text" id="paymentSchedule_autoPayment" name="autoPayment"
 					ng-model="paymentSchedule.autoPayment" class="form-control" maxLength="2" />
 				</div>
 			</div>
-			
+
 
 			<!-- ACTION BUTTONS -->
 			<div class="form-group">
@@ -57,11 +59,11 @@
 					<button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="save()">{{ 'save' | translate }}</button>
 				</div>
 			</div>
-                        <div class="col-sm-2">
-                            <ul>
-                                <li><a href="#/paymentHistory">{{ 'PaymentHistory' | translate }}</a></li>
-                            </ul>
-                        </div>
+      <div class="col-sm-2">
+          <ul>
+              <li><a href="#/paymentHistory">{{ 'PaymentHistory' | translate }}</a></li>
+          </ul>
+      </div>
 		</form>
-			
+
     </fieldset>

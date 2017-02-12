@@ -12,4 +12,5 @@ accountModule.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/account',    {templateUrl: 'partials/account/account_list.html', controller: 'AccountCtrl'});
     $routeProvider.when('/account/new', {templateUrl: 'partials/account/account_form.html', controller: 'AccountCtrl'});
     $routeProvider.when('/account/:id', {templateUrl: 'partials/account/account_form.html', controller: 'AccountCtrl'});
+    $routeProvider.when('/accountProfile/:id', {templateUrl: 'partials/account/accountProfile_form.html', controller: 'AccountCtrl'});
 }]);
