@@ -1,0 +1,22 @@
+		<fieldset class="col-sm-12 bordure">
+			<legend class="legende">{{ 'Role' | translate }}</legend>
+		
+			<div ng-include src="'partials/message-include.html'"></div>
+			
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>{{ 'role.roleId' | translate }}</th>
+						<th>{{ 'role.roleName' | translate }}</th>
+						<th><a class="btn btn-info" href='#/role/new'>{{ 'create' | translate }}</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="role in roles">
+						<td>{{role.roleId}}</td>
+						<td>{{role.roleName}}</td>
+						<td><a class="btn btn-info" href="#/role/{{role.roleId}}">{{ 'edit' | translate }}</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>

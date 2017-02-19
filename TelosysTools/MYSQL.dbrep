@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Telosys Database Repository --><root>
-<tableList databaseId="5" databaseName="MYSQL" databaseProductName="MySQL" generation="2017-02-11 18:01:28">
+<tableList databaseId="5" databaseName="MYSQL" databaseProductName="MySQL" generation="2017-02-17 17:15:59">
 <table catalog="homeAccount" databaseType="TABLE" javaBean="Account" name="Account" schema="">
 <column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="account_name" dbNotNull="true" dbPosition="2" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="accountName" javaType="java.lang.String" jdbcTypeCode="12" label="Account name" maxLength="45" notEmpty="true" notNull="true" selected="true"/>
@@ -14,19 +14,27 @@
 <column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="Account_Type_Id" dbNotNull="true" dbPosition="10" dbSize="10" dbTypeName="INT" inputType="number" javaName="accountTypeId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Account type id" notNull="true" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="auto_payment" dbNotNull="false" dbPosition="11" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="autoPayment" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Auto payment" notNull="false" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="User_account_id" dbNotNull="false" dbPosition="12" dbSize="10" dbTypeName="INT" inputType="number" javaName="userAccountId" javaType="java.lang.Integer" jdbcTypeCode="4" label="User account id" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="Account_Address_id" dbNotNull="false" dbPosition="13" dbSize="10" dbTypeName="INT" inputType="number" javaName="accountAddressId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Account address id" notNull="false" selected="true"/>
 <fk name="FK_Acct_Type">
 <fkcol colname="Account_Type_Id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="Account" tableref="Account_Type" updaterule="3"/>
+</fk>
+<fk name="fk_Account_Address">
+<fkcol colname="Account_Address_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="Account" tableref="Account_Address" updaterule="3"/>
 </fk>
 <fk name="fk_Account_User_Account1">
 <fkcol colname="User_account_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="Account" tableref="User_Account" updaterule="3"/>
 </fk>
 <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Payment_History_Account1" id="LINK_FK_fk_Payment_History_Account1_I" inverseSideOf="LINK_FK_fk_Payment_History_Account1_O" javaName="listOfPaymentHistory" javaType="java.util.List" joinTableName="" mappedBy="account" optional="UNDEFINED" owningSide="false" sourceTableName="Account" targetEntity="PaymentHistory" targetTableName="Payment_History" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Account_Address" id="LINK_FK_fk_Account_Address_O" inverseSideOf="" javaName="accountAddress" javaType="AccountAddress" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Account" targetEntity="AccountAddress" targetTableName="Account_Address" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="Account_Address_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
 <link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Account_User_Account1" id="LINK_FK_fk_Account_User_Account1_O" inverseSideOf="" javaName="userAccount" javaType="UserAccount" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Account" targetEntity="UserAccount" targetTableName="User_Account" used="true">
 <joinColumns>
 <joinColumn insertable="false" name="User_account_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
 </joinColumns>
 </link>
-<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Account_Address_Account" id="LINK_FK_fk_Account_Address_Account_I" inverseSideOf="LINK_FK_fk_Account_Address_Account_O" javaName="listOfAccountAddress" javaType="java.util.List" joinTableName="" mappedBy="account" optional="UNDEFINED" owningSide="false" sourceTableName="Account" targetEntity="AccountAddress" targetTableName="Account_Address" used="true"/>
 <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Payment_Schedule_Account1" id="LINK_FK_fk_Payment_Schedule_Account1_I" inverseSideOf="LINK_FK_fk_Payment_Schedule_Account1_O" javaName="listOfPaymentSchedule" javaType="java.util.List" joinTableName="" mappedBy="account" optional="UNDEFINED" owningSide="false" sourceTableName="Account" targetEntity="PaymentSchedule" targetTableName="Payment_Schedule" used="true"/>
 <link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_Acct_Type" id="LINK_FK_FK_Acct_Type_O" inverseSideOf="" javaName="accountType" javaType="AccountType" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Account" targetEntity="AccountType" targetTableName="Account_Type" used="true">
 <joinColumns>
@@ -41,15 +49,7 @@
 <column dbComment="" dbDefaultValue="" dbName="city" dbNotNull="false" dbPosition="4" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="city" javaType="java.lang.String" jdbcTypeCode="12" label="City" maxLength="45" notNull="false" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="state" dbNotNull="false" dbPosition="5" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="state" javaType="java.lang.String" jdbcTypeCode="12" label="State" maxLength="45" notNull="false" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="zipcode" dbNotNull="false" dbPosition="6" dbSize="5" dbTypeName="VARCHAR" inputType="text" javaName="zipcode" javaType="java.lang.String" jdbcTypeCode="12" label="Zipcode" maxLength="5" notNull="false" selected="true"/>
-<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="Account_id" dbNotNull="true" dbPosition="7" dbSize="10" dbTypeName="INT" inputType="number" javaName="accountId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Account id" notNull="true" selected="true"/>
-<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="Account_Type_id" dbNotNull="true" dbPosition="8" dbSize="10" dbTypeName="INT" inputType="number" javaName="accountTypeId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Account type id" notNull="true" selected="true"/>
-<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="Address_Type_id" dbNotNull="true" dbPosition="9" dbSize="10" dbTypeName="INT" inputType="number" javaName="addressTypeId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Address type id" notNull="true" selected="true"/>
-<fk name="fk_Account_Address_Account">
-<fkcol colname="Account_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="Account_Address" tableref="Account" updaterule="3"/>
-</fk>
-<fk name="fk_Account_Address_Account_Type1">
-<fkcol colname="Account_Type_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="Account_Address" tableref="Account_Type" updaterule="3"/>
-</fk>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="Address_Type_id" dbNotNull="true" dbPosition="7" dbSize="10" dbTypeName="INT" inputType="number" javaName="addressTypeId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Address type id" notNull="true" selected="true"/>
 <fk name="fk_Account_Address_Type">
 <fkcol colname="Address_Type_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="Account_Address" tableref="Address_Type" updaterule="3"/>
 </fk>
@@ -58,23 +58,13 @@
 <joinColumn insertable="false" name="Address_Type_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
 </joinColumns>
 </link>
-<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Account_Address_Account" id="LINK_FK_fk_Account_Address_Account_O" inverseSideOf="" javaName="account" javaType="Account" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Account_Address" targetEntity="Account" targetTableName="Account" used="true">
-<joinColumns>
-<joinColumn insertable="false" name="Account_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
-</joinColumns>
-</link>
-<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_Account_Address_Account_Type1" id="LINK_FK_fk_Account_Address_Account_Type1_O" inverseSideOf="" javaName="accountType" javaType="AccountType" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="Account_Address" targetEntity="AccountType" targetTableName="Account_Type" used="true">
-<joinColumns>
-<joinColumn insertable="false" name="Account_Type_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
-</joinColumns>
-</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Account_Address" id="LINK_FK_fk_Account_Address_I" inverseSideOf="LINK_FK_fk_Account_Address_O" javaName="listOfAccount" javaType="java.util.List" joinTableName="" mappedBy="accountAddress" optional="UNDEFINED" owningSide="false" sourceTableName="Account_Address" targetEntity="Account" targetTableName="Account" used="true"/>
 </table>
 <table catalog="homeAccount" databaseType="TABLE" javaBean="AccountType" name="Account_Type" schema="">
 <column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="account_code" dbNotNull="false" dbPosition="2" dbSize="6" dbTypeName="VARCHAR" inputType="text" javaName="accountCode" javaType="java.lang.String" jdbcTypeCode="12" label="Account code" maxLength="6" notNull="false" selected="true"/>
 <column dbComment="" dbDefaultValue="" dbName="account_name" dbNotNull="false" dbPosition="3" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="accountName" javaType="java.lang.String" jdbcTypeCode="12" label="Account name" maxLength="45" notNull="false" selected="true"/>
 <link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_Acct_Type" id="LINK_FK_FK_Acct_Type_I" inverseSideOf="LINK_FK_FK_Acct_Type_O" javaName="listOfAccount" javaType="java.util.List" joinTableName="" mappedBy="accountType" optional="UNDEFINED" owningSide="false" sourceTableName="Account_Type" targetEntity="Account" targetTableName="Account" used="true"/>
-<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_Account_Address_Account_Type1" id="LINK_FK_fk_Account_Address_Account_Type1_I" inverseSideOf="LINK_FK_fk_Account_Address_Account_Type1_O" javaName="listOfAccountAddress" javaType="java.util.List" joinTableName="" mappedBy="accountType" optional="UNDEFINED" owningSide="false" sourceTableName="Account_Type" targetEntity="AccountAddress" targetTableName="Account_Address" used="true"/>
 </table>
 <table catalog="homeAccount" databaseType="TABLE" javaBean="AddressType" name="Address_Type" schema="">
 <column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
