@@ -6,7 +6,7 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>{{ 'paymentHistory.idpaymentHistory' | translate }}</th>
+						 
 						<th>{{ 'paymentHistory.amountPaid' | translate }}</th>
 						<th>{{ 'paymentHistory.datePaid' | translate }}</th>
 						<th>{{ 'paymentHistory.dateModified' | translate }}</th>
@@ -16,7 +16,7 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="paymentHistory in paymentHistorys">
-						<td>{{paymentHistory.idpaymentHistory}}</td>
+						 
 						<td>{{paymentHistory.amountPaid | number }}</td>
 						<td>{{paymentHistory.datePaid | date:'shortDate'}}</td>
 						<td>{{paymentHistory.dateModified | date:'shortDate'}}</td>

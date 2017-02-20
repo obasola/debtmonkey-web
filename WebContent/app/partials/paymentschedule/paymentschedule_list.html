@@ -6,7 +6,7 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>{{ 'paymentSchedule.id' | translate }}</th>
+						 
 						<th>{{ 'paymentSchedule.nextPaymentDue' | translate }}</th>
 						<th>{{ 'paymentSchedule.balanceDue' | translate }}</th>
 						<th>{{ 'paymentSchedule.autoPayment' | translate }}</th>
@@ -15,7 +15,7 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="paymentSchedule in paymentSchedules">
-						<td>{{paymentSchedule.id}}</td>
+					 
 						<td>{{paymentSchedule.nextPaymentDue | date:'shortDate'}}</td>
 						<td>{{paymentSchedule.balanceDue | number }}</td>
 						<td>{{paymentSchedule.autoPayment}}</td>

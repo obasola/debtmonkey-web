@@ -4,12 +4,7 @@
 		<div ng-include src="'partials/message-include.html'"></div>
    		
 		<form class="well form-horizontal">
-			<div class="form-group">
-				<label for="accountType_id" class="col-sm-2 control-label">{{ 'accountType.id' | translate }}</label>
-				<div class="col-sm-10">
-					<input type="text" id="accountType_id" name="id" ng-model="accountType.id" class="form-control" maxLength="11"  ng-disabled="mode != 'create'"/>
-				</div>
-			</div>
+			 
 			<div class="form-group">
 				<label for="accountType_accountCode" class="col-sm-2 control-label">{{ 'accountType.accountCode' | translate }}</label>
 				<div class="col-sm-10">

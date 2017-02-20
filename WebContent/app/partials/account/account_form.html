@@ -4,16 +4,26 @@
 		<div ng-include src="'partials/message-include.html'"></div>
    		
 		<form class="well form-horizontal">
-			<div class="form-group">
-				<label for="account_id" class="col-sm-2 control-label">{{ 'account.id' | translate }}</label>
-				<div class="col-sm-10">
-					<input type="text" id="account_id" name="id" ng-model="account.id" class="form-control" maxLength="11"  ng-disabled="mode != 'create'"/>
-				</div>
-			</div>
+			
 			<div class="form-group">
 				<label for="account_accountName" class="col-sm-2 control-label">{{ 'account.accountName' | translate }}</label>
 				<div class="col-sm-10">
 					<input type="text" id="account_accountName" name="accountName" ng-model="account.accountName" class="form-control" maxLength="45" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_accountTypeId" class="col-sm-2 control-label">{{ 'account.accountTypeId' | translate }}</label>
+				<div class="col-sm-10">
+                    <select id="account_accountTypeId" ng-model="account.accountTypeId" name="accountTypeId" class="form-control">
+						<option value=""></option>
+                        <option ng-repeat="accountType in items.accountTypes" title="{{accountType.label}}" ng-selected="{{accountType.value == account.accountTypeId}}" value="{{accountType.value}}">{{accountType.label}}</option>
+                    </select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="account_autoPayment" class="col-sm-2 control-label">{{ 'account.autoPayment' | translate }}</label>
+				<div class="col-sm-10">
+					<input type="text" id="account_autoPayment" name="autoPayment" ng-model="account.autoPayment" class="form-control" maxLength="4" />
 				</div>
 			</div>
 			<div class="form-group">
@@ -34,45 +44,7 @@
 					<input id="account_dateLastPayment" bs-datepicker data-autoclose="1" ng-model="account.dateLastPayment" name="dateLastPayment" class="form-control" />
 				</div>
 			</div>
-			<div class="form-group">
-				<label for="account_dateOpened" class="col-sm-2 control-label">{{ 'account.dateOpened' | translate }}</label>
-				<div class="col-sm-10">
-					<input id="account_dateOpened" bs-datepicker data-autoclose="1" ng-model="account.dateOpened" name="dateOpened" class="form-control" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="account_dateClosed" class="col-sm-2 control-label">{{ 'account.dateClosed' | translate }}</label>
-				<div class="col-sm-10">
-					<input id="account_dateClosed" bs-datepicker data-autoclose="1" ng-model="account.dateClosed" name="dateClosed" class="form-control" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="account_dateCreated" class="col-sm-2 control-label">{{ 'account.dateCreated' | translate }}</label>
-				<div class="col-sm-10">
-					<input id="account_dateCreated" bs-datepicker data-autoclose="1" ng-model="account.dateCreated" name="dateCreated" class="form-control" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="account_dateModified" class="col-sm-2 control-label">{{ 'account.dateModified' | translate }}</label>
-				<div class="col-sm-10">
-					<input id="account_dateModified" bs-datepicker data-autoclose="1" ng-model="account.dateModified" name="dateModified" class="form-control" />
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="account_accountTypeId" class="col-sm-2 control-label">{{ 'account.accountTypeId' | translate }}</label>
-				<div class="col-sm-10">
-                    <select id="account_accountTypeId" ng-model="account.accountTypeId" name="accountTypeId" class="form-control">
-						<option value=""></option>
-                        <option ng-repeat="accountType in items.accountTypes" title="{{accountType.label}}" ng-selected="{{accountType.value == account.accountTypeId}}" value="{{accountType.value}}">{{accountType.label}}</option>
-                    </select>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="account_autoPayment" class="col-sm-2 control-label">{{ 'account.autoPayment' | translate }}</label>
-				<div class="col-sm-10">
-					<input type="text" id="account_autoPayment" name="autoPayment" ng-model="account.autoPayment" class="form-control" maxLength="4" />
-				</div>
-			</div>
+			
 			<div class="form-group">
 				<label for="account_userAccountId" class="col-sm-2 control-label">{{ 'account.userAccountId' | translate }}</label>
 				<div class="col-sm-10">
@@ -85,9 +57,8 @@
 			<div class="form-group">
 				<label for="account_accountAddressId" class="col-sm-2 control-label">{{ 'account.accountAddressId' | translate }}</label>
 				<div class="col-sm-10">
-                    <select id="account_accountAddressId" ng-model="account.accountAddressId" name="accountAddressId" class="form-control">
-						<option value=""></option>
-                        <option ng-repeat="accountAddress in items.accountAddresss" title="{{accountAddress.label}}" ng-selected="{{accountAddress.value == account.accountAddressId}}" value="{{accountAddress.value}}">{{accountAddress.label}}</option>
+                    <select id="account_accountAddressId" ng-model="account.accountAddress" name="accountAddressId" class="form-control">
+                        <option ng-repeat="accountAddress in items.accountAddresss" title="{{accountAddress.label}}" ng-selected="{{accountAddress.value == account.accountAddress}}" value="{{accountAddress.value}}">{{accountAddress.label}}</option>
                     </select>
 				</div>
 			</div>

@@ -30,7 +30,17 @@ var myApp = angular.module('myApp', [
   ,'role.module'
   ,'userAccount.module'
   ,'userRole.module'
+  ,'admin.module'
 ]);
+
+myApp.controller('NavBarController', ['Role',  'UserAccount', '$scope', '$routeParams', '$http', '$location', '$cookies', 'MessageHandler', 'restURL', 
+    function(Role, UserAccount, $scope, $routeParams, $http, $location, $cookies, MessageHandler, restURL) {
+			$scope.resetActiveTab = function(tabname) {
+				alert("You clicked tab: "+tabname);
+			} ;
+	}
+]);
+
 
 /**
  * Main configuration
