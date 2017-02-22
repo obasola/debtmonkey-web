@@ -13,8 +13,7 @@
 						<th>{{ 'account.dateLastPayment' | translate }}</th>
 						<th>{{ 'account.dateOpened' | translate }}</th>
 						<th>{{ 'account.dateClosed' | translate }}</th>
-						<th>{{ 'account.dateCreated' | translate }}</th>
-						<th>{{ 'account.dateModified' | translate }}</th>
+						
 						<th>{{ 'account.autoPayment' | translate }}</th>
 						<th><a class="btn btn-info" href='#/account/new'>{{ 'create' | translate }}</a></th>
 					</tr>
@@ -28,8 +27,7 @@
 						<td>{{account.dateLastPayment | date:'shortDate'}}</td>
 						<td>{{account.dateOpened | date:'shortDate'}}</td>
 						<td>{{account.dateClosed | date:'shortDate'}}</td>
-						<td>{{account.dateCreated | date:'shortDate'}}</td>
-						<td>{{account.dateModified | date:'shortDate'}}</td>
+						
 						<td>{{account.autoPayment}}</td>
 						<td><a class="btn btn-info" href="#/account/{{account.id}}">{{ 'edit' | translate }}</a></td>
 					</tr>
